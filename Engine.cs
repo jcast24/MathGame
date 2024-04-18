@@ -48,6 +48,7 @@ internal class Engine
         {
             Console.WriteLine($"{DateTime.Now} - {game.Type}: {game.Score} pts");
         }
+        Console.WriteLine("Press any key to continue!");
         Console.ReadLine();
     }
     
