@@ -6,7 +6,7 @@ internal class Engine
 {
     private List<Game> games = [];
 
-    private void AddToHistory(int gameScore, string gameType)
+    private void AddToHistory(int gameScore, GameType gameType)
     {
         games.Add(new Game
         {
@@ -82,7 +82,7 @@ internal class Engine
                 Console.ReadLine();
             }
         }
-        AddToHistory(score, "Addition");
+        AddToHistory(score, GameType.Addition);
     }
 
     internal void Subtraction(int numOfGames)
@@ -113,7 +113,7 @@ internal class Engine
                 Console.ReadLine();
             }
         }
-        AddToHistory(score, "Subtraction");
+        AddToHistory(score, GameType.Subtraction);
     }
 
     int[] GetDivisionNumbers()
@@ -165,7 +165,7 @@ internal class Engine
                 Console.ReadLine();
             }
             
-            AddToHistory(score, "Division");
+            AddToHistory(score, GameType.Division);
         }
     }
         
@@ -197,6 +197,6 @@ internal class Engine
                 Console.WriteLine($"Final score: {score}");
             }
         }
-        AddToHistory(score, "Multiplication");
+        AddToHistory(score, GameType.Multiplication);
     }
 }
