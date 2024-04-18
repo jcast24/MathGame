@@ -1,6 +1,6 @@
 namespace LocalMathGame;
 
-class Menu
+internal class Menu
 {
     public void MenuSystem(int numOfGames)
     {
@@ -37,8 +37,10 @@ class Menu
                     engine.Division(numOfGames);
                     break;
                 case "v":
+                    engine.GetGames();
                     break;
                 case "r":
+                    engine.RandomGame(numOfGames);
                     break;
                 case "q":
                     Console.WriteLine("Goodbye! Thank you for playing!");
@@ -47,7 +49,7 @@ class Menu
                 default:
                     Console.WriteLine("Please type a correct value");
                     break;
-            } while (isGameOn);
-        }
+            }
+        } while (isGameOn);
     }
 }
