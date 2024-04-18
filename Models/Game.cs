@@ -1,6 +1,8 @@
 ﻿namespace LocalMathGame.Models;
 
-public class Game
+internal class Game
 {
-    
+   internal DateTime Date { get; set; }
+   internal int Score { get; set; }
+   internal string Type { get; set; }
 }
