@@ -1,15 +1,22 @@
+using LocalMathGame.Models;
+
 namespace LocalMathGame;
 
-class Engine
+internal class Engine
 {
-    private List<string> games = new List<string>();
-    
-    void AddToHistory(int gameScore, string gameType)
+    private List<Game> games = [];
+
+    private void AddToHistory(int gameScore, string gameType)
     {
-        games.Add($"{DateTime.Now} - {gameType}: {gameScore} pts");
+        games.Add(new Game
+        {
+            Date = DateTime.Now,
+            Score = gameScore,
+            Type =  gameType
+        });
     }
 
-    public void randomGame(int numOfGames)
+    internal void RandomGame(int numOfGames)
     {
         Random num = new Random();
         var value = num.Next(0,4);
@@ -35,17 +42,16 @@ class Engine
         
     }
 
-    public void GetGames()
+    internal void GetGames()
     {
         foreach(var game in games)
         {
-            Console.WriteLine(game);
+            Console.WriteLine($"{DateTime.Now} - {game.Type}: {game.Score} pts");
         }
-
         Console.ReadLine();
     }
     
-    public void Addition(int numOfGames)
+    internal void Addition(int numOfGames)
     {
         int score = 0;
         for (int i = 0; i < numOfGames; i++)
@@ -78,7 +84,7 @@ class Engine
         AddToHistory(score, "Addition");
     }
 
-    public void Subtraction(int numOfGames)
+    internal void Subtraction(int numOfGames)
     {
         int score = 0;
         for (int i = 0; i < numOfGames; i++)
@@ -131,7 +137,7 @@ class Engine
         return result;
     }
 
-    public void Division(int numOfGames)
+    internal void Division(int numOfGames)
     {
         int score = 0;
         for (int i = 0; i < numOfGames; i++)
@@ -162,8 +168,7 @@ class Engine
         }
     }
         
-
-    public void Multiplication(int numOfGames)
+    internal void Multiplication(int numOfGames)
     {
         int score = 0;
         for (int i = 0; i < numOfGames; i++)
