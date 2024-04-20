@@ -1,11 +1,19 @@
 namespace LocalMathGame;
-
 internal class Menu
 {
-    public void MenuSystem(int numOfGames)
+    internal int AskUser()
+    {
+        Console.WriteLine("Please enter the amount of questions you would like to ask: ");
+        int input = int.Parse(Console.ReadLine());
+        return input;
+    }
+    
+    internal void MenuSystem()
     {
         Engine engine = new Engine();
         bool isGameOn = true;
+
+        int numOfGames = AskUser();
 
         do
         {
