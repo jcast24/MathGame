@@ -1,5 +1,4 @@
 using LocalMathGame.Models;
-
 namespace LocalMathGame;
 
 internal class Engine
@@ -61,12 +60,12 @@ internal class Engine
             int firstNum = random.Next(1, 9);
             int secondNum = random.Next(1, 9);
             
-            int result = firstNum + secondNum;
-                    
             Console.WriteLine($"What is the result of {firstNum} + {secondNum}?");
-            int getResult = Convert.ToInt32(Console.ReadLine());
-        
-            if (getResult == result)
+            string? result = Console.ReadLine();
+            result = Helper.ValidateInput(result);
+
+            
+            if (int.Parse(result) == firstNum + secondNum)
             {
                 Console.WriteLine("Correct!");
                 score++;
@@ -93,11 +92,11 @@ internal class Engine
             var random = new Random();
             int firstNum = random.Next(1, 9);
             int secondNum = random.Next(1, 9);
-            int result = firstNum - secondNum;
             Console.WriteLine($"What is the result of {firstNum} - {secondNum}?");
-            int getResult = Convert.ToInt32(Console.ReadLine());
+            string? result = Console.ReadLine();
+            result = Helper.ValidateInput(result);
                         
-            if (getResult == result)
+            if (int.Parse(result) == firstNum - secondNum)
             {
                 Console.WriteLine("Correct!");
                 score++;
@@ -148,8 +147,10 @@ internal class Engine
             
             Console.WriteLine($"What is the result of {divArray[0]} / {divArray[1]}?");
             var getResult = Convert.ToInt32(Console.ReadLine());
+            var result = Console.ReadLine();
+            result = Helper.ValidateInput(result);
             
-            if (answer == getResult)
+            if (int.Parse(result) == answer)
             {
                 Console.WriteLine("Correct!");
                 score++;
@@ -178,11 +179,13 @@ internal class Engine
             int firstNum = random.Next(1, 9);
             int secondNum = random.Next(1, 9);
             
-            int result = firstNum * secondNum;
+            int answer = firstNum * secondNum;
                         
             Console.WriteLine($"What is the result of {firstNum} * {secondNum}?");
-            int getResult = Convert.ToInt32(Console.ReadLine());
-            if (getResult == result)
+            string result = Console.ReadLine();
+            result = Helper.ValidateInput(result);
+            
+            if (int.Parse(result) == answer)
             {
                 Console.WriteLine("Correct!");
                 score++;
